@@ -41,19 +41,19 @@ ozark;
 
 #ALIASES
 alias ls="ls -al --color=always";export LESS="r";
-alias spamsoft='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/spamsoft)';
-alias addspamhunter='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/spamhunter)';
+alias spamsoft='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/spamsoft)';
+alias addspamhunter='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/spamhunter)';
 alias devnullcron='bash <(curl -ks https://codex.hostdime.com/scripts/download/devnullcron)';
-alias mnotifybeta='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/snotifybeta.sh)';
-alias checkxmlrpc='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/xmlrpc.sh)';
-alias checkwplogin='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/wplogin.sh)';
-alias whoownsdomain='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/-/raw/main/whoownsdomain.sh)';
+alias mnotifybeta='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/snotifybeta.sh)';
+alias checkxmlrpc='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/xmlrpc.sh)';
+alias checkwplogin='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/wplogin.sh)';
+alias whoownsdomain='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/whoownsdomain.sh)';
 alias xupas='eval "$(curl -ks https://codex.hostdime.com/scripts/download/supas)"';
-alias changetimezone='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/-/raw/main/changetimezone.sh)';
+alias changetimezone='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/changetimezone.sh)';
 alias wordpressfix='bash <(curl -ks https://codex.hostdime.com/scripts/download/wordpressfix)';
-alias portcheck='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/-/raw/main/portcheck.sh)';
+alias portcheck='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/portcheck.sh)';
 alias backuphistory='bash <(curl -ks https://codex.hostdime.com/scripts/download/cpbackupspeed)';
-alias domlog='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/domlogs.sh)';
+alias domlog='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/domlogs.sh)';
 alias scheck2='bash <(curl -ks https://codex.hostdime.com/scripts/download/scheck2)';
 alias add360agent='wget -q -N monitoring.platform360.io/agent360.sh && bash agent360.sh 634d9e3c1c270f0ba10fe6e7';
 
