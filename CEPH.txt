@@ -1,0 +1,13 @@
+dia2
+
+
+ceph-ansible
+
+apache cloudstack
+
+iscsi // multipath // IP float
+
+
+revisar VLAN
+
+python virtual environment

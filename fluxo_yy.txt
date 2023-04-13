@@ -1,0 +1,8 @@
+- Identificar o SPAM a partir de palavras chaves no título
+- Identificar as conta de e-mails comprometidas e concatená-las
+- Listar as contas comprometidas e os respectivos títulos maliciosos
+- Trocar a senha das contas comprometidas e desativá-las
+- Enviar um e-mail para a fila do monitoring/abuse informando as contas que forma tratadas
+
+
+

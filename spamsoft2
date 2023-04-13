@@ -1,0 +1,23 @@
+#!/bin/bash
+LANG=en_US.utf8
+date=$(date -d "$mon 1 $year" "+%Y-%m-%d")
+
+ipsaida=$(hostname -i | tr -s " " | cut -f1 -d " ")
+
+rm -f spamsoft.txt
+
+echo -e "\nLogins used to send e-mail:" >> spamsoft.txt
+
+cat /var/log/exim_mainlog | grep "$date" | grep "A=dovecot_login:" | awk '{print $11}' |cut -d'=' -f2 | sort | uniq -c |sort -rn | head -20 >> spamsoft.txt
+
+sed -i '/no/d' spamsoft.txt && sed -i '/RCPT/d' spamsoft.txt
+
+echo -e "\nDirectories used to send e-mail:" >> spamsoft.txt
+
+cat /var/log/exim_mainlog | grep "$date" | grep -hoP "(?<=cwd=)/[^ ]+" /var/log/exim_mainlog | sort | uniq -c | sort -nr | head -20 >> spamsoft.txt
+
+sed -i '\/var\/spool\/exim/d' spamsoft.txt && sed -i '\/etc\/csf/d' spamsoft.txt && sed -i '\/root/d' spamsoft.txt
+
+cat spamsoft.txt
+
+rm -rf spamsoft.txt

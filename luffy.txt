@@ -1,0 +1,5 @@
+1 - Criar base de dados com palavras identificado o SPAM;
+2 - Criar script inicial para identificar as palavras presentes na base de dados;
+3 - Unificar as contas identificadas e contar a quantidade de envios;
+4 - Listar as contas que enviaram SPAM a partir do match em palavras do banco de dados, apresentando a quantidade de envios;
+5 - Criar a opção para escolher a quantidade de dias na verificação;
