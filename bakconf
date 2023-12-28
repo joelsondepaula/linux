@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# Lista de serviços a serem verificados
+servicos=("csf.service" "exim.service" "mysql.service" "lve.service" "cagefs.service")
+
+# Lista de caminhos dos arquivos de configuração correspondentes
+caminhos=("/etc/csf/csf.conf" "/etc/exim.conf" "/etc/my.cnf" "/etc/container/ve.cfg" "/etc/cl.selector/")
+
+# Diretório de destino para os arquivos de configuração
+diretorio_destino="/backup/cp_backup"
+
+# Adiciona timestamp no formato YYYYMMDD_HHMMSS
+timestamp=$(date +"%Y%m%d_%H%M%S")
+
+# Verifica se o diretório de destino existe; se não, cria
+if [ ! -d "$diretorio_destino" ]; then
+    mkdir -p "$diretorio_destino"
+    echo "Diretório de destino criado em: $diretorio_destino"
+fi
+
+# Loop através dos serviços
+for ((i=0; i<${#servicos[@]}; i++)); do
+    servico="${servicos[i]}"
+    caminho="${caminhos[i]}"
+
+    # Verifica se o serviço está em execução
+    if systemctl is-active --quiet "$servico" > /dev/null; then
+        echo "O serviço $servico está em execução."
+
+        # Constrói o nome do arquivo com timestamp
+        arquivo_destino="$diretorio_destino/$(basename $caminho)_$timestamp"
+
+        # Copia o arquivo de configuração para o diretório de destino
+        if [ "$servico" == "cagefs.service" ]; then
+            # Se o serviço for cagefs.service, copia todo o diretório
+            cp -R "/etc/cl.selector/" "$arquivo_destino"
+            echo "Conteúdo de /etc/cl.selector/ copiado para $arquivo_destino"
+        elif [ -f "$caminho" ]; then
+            # Se não for cagefs.service, copia o arquivo individual
+            cp -R "$caminho" "$arquivo_destino"
+            echo "Arquivo de configuração $caminho copiado para $arquivo_destino"
+        else
+            echo "O arquivo de configuração $caminho não existe."
+        fi
+    else
+        echo "O serviço $servico não está em execução."
+    fi
+done
