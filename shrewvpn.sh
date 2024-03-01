@@ -9,6 +9,7 @@ sudo apt install -y build-essential \
 qtcreator \
 qt5-default qt5-qmake \
 cmake libssl-dev libedit-dev flex bison \
+git \
 
 sudo git clone https://github.com/HayfaAbusnina/ike.git
 
