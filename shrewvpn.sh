@@ -3,7 +3,7 @@ user=$(whoami)
 
 cd  /home
 
-sudo apt update
+sudo apt update -y
 
 sudo apt install -y build-essential \
 qtcreator \
