@@ -18,6 +18,6 @@ cd /home/ike; cmake -DCMAKE_INSTALL_PREFIX=/usr -DQTGUI=YES -DETCDIR=/etc -DNATT
 echo "alias qikea='screen -S qikea -dm bash -c \"qikea; exec bash\"'" >> ~/.bashrc; source ~/.bashrc
 
 echo "Para executar a GUI basta rodar os comandos \"sudo iked\" e posteriormente \"qikea\""
-echo "\nArtigo com as instruções de instalação e configuração: https://hostdime.atlassian.net/wiki/spaces/Suporte/pages/131530998/Instala+o+e+configura+o+do+ShrewVPN+no+Ubuntu+para+conex+o+VPN+DialUP"
+echo -e "\nArtigo com as instruções de instalação e configuração: https://hostdime.atlassian.net/wiki/spaces/Suporte/pages/131530998/Instala+o+e+configura+o+do+ShrewVPN+no+Ubuntu+para+conex+o+VPN+DialUP"
 
 exit;
