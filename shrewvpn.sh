@@ -5,7 +5,7 @@ cd  /home
 
 sudo apt update
 
-sudo apt install build-essential \
+sudo apt install -y build-essential \
 qtcreator \
 qt5-default qt5-qmake \
 cmake libssl-dev libedit-dev flex bison \
