@@ -17,3 +17,5 @@ sed -i "s/habusnina/$user/g" /home/ike/source/qikea/moc_qikea.cpp_parameters
 sed -i "s/habusnina/$user/g" /home/ike/source/qikec/moc_qikec.cpp_parameters
 
 cd /home/ike/; cmake -DCMAKE_INSTALL_PREFIX=/usr -DQTGUI=YES -DETCDIR=/etc -DNATT=YES; make; sudo make install; sudo ldconfig; sudo mv /etc/iked.conf.sample /etc/iked.conf
+
+echo "alias qikea='screen -S qikea -dm bash -c \"qikea; exec bash\"'" >> ~/.bashrc; source ~/.bashrc
