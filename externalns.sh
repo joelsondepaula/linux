@@ -10,3 +10,4 @@ for i in $(find /var/named -maxdepth 1 -type f -name "*.db" | awk -F"/var/named/
         echo "$ns_result"
     echo "========================"
     fi
+done
