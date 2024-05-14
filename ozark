@@ -1,50 +1,100 @@
 #!/bin/bash
 # Author: Joelson Salustiano
 # E-mail: joelson.p@hostdime.com.br
-# Script para atividade de monitoramento, com algumas funções do ambiente de suporte
+# Last update: ##27/12/2023##
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+WHITE='\033[0;37m'
+NC='\033[0m' # No Color
 
 # All functions
 
 function ozark (){
 
-echo -e "spamsoft\t\t\t->\t Envio de e-mails do dia por conta\n";
-echo -e "addspamhunter\t\t\t->\t Adicionar rotina de execução diária do SpamHunter às 23:30\n" ;
-echo -e "devnullcron\t\t\t->\t Adiciona o trecho /dev/null 2>&1 em todas as crons de uma conta\n";
-echo -e "cpass\t\t\t\t->\t Alterar senha de conta de e-mail\n";
-echo -e "crystalnova\t\t\t->\t Remover e-mails congelados da fila\n";
+
+
+echo -e "\n${CYAN}============================== Mail ==============================${NC}\n"
 echo -e "sendmail\t\t\t->\t Envio de e-mail para Hotmail e Gmail\n";
+echo -e "sendhotmail\t\t\t->\t Envio de e-mail para o Hotmail\n";
+echo -e "sendgmail\t\t\t->\t Envio de e-mail para o Gmail\n";
+echo -e "spamsoft\t\t\t->\t Envio de e-mails do dia por conta\n";
 echo -e "strikemail\t\t\t->\t Remove todos os e-mails de uma conta de e-mail da fila\n";
+echo -e "crystalnova\t\t\t->\t Remover e-mails congelados da fila\n";
+echo -e "queueclear\t\t\t->\t Apagar fila de e-mails através do path (último recurso)\n";
 echo -e "ygrep\t\t\t\t->\t Envios conta específica\n";
 echo -e "ipsaida\t\t\t\t->\t Mostra o IP de saída de e-mails\n";
 echo -e "mnotifybeta\t\t\t->\t Notificação para envio de SPAM\n";
+echo -e "eximcc\t\t\t\t->\t Limpeza de cache do Exim\n";
+echo -e "emailsumiu\t\t\t->\t Resync do dovecot para restauração de e-mails que estão no /cur mas não aparecem no webmail\n";
+echo -e "disablerootnotifications\t-> Desativar notificações de e-mails do root\n";
+
+echo -e "${CYAN}============================== Codex ==============================${NC}\n"
+echo -e "wordpressfix\t\t\t->\t Substituição de arquivos WordPress sem perda de dados\n";
+echo -e "backuphistory\t\t\t->\t Histórico de rotina de backups executadas no servidor\n";
+echo -e "scheck2\t\t\t\t->\t Verificar utilização de recursos do servidor\n";
+echo -e "equipa\t\t\t\t->\t Listar de softwares para equiparação\n";
+echo -e "diskhealth\t\t\t\t->\t Verificar saúde de raid e disco\n";
+
+
+echo -e "${CYAN}============================ Diversos ============================${NC}\n"
+echo -e "addspamhunter\t\t\t->\t Adicionar rotina de execução diária do SpamHunter às 23:30\n" ;
+echo -e "devnullcron\t\t\t->\t Adiciona o trecho /dev/null 2>&1 em todas as crons de uma conta\n";
+echo -e "cpass\t\t\t\t->\t Alterar senha de conta de e-mail\n";
 echo -e "checkxmlrpc\t\t\t->\t Verificar as requisições no arquivo xmlrpc.php\n";
 echo -e "checkwplogin\t\t\t->\t Verificar as requisições no arquivo wp-login.php\n"; 
 echo -e "whoownsdomain\t\t\t->\t Verificar o owner de uma conta a partir do domínio\n";
-echo -e "queueclear\t\t\t->\t Apagar fila de e-mails através do path (último recurso)\n";
-echo -e "xupas\t\t\t\t->\t Subir ambiente do suporte\n";
-echo -e "eximcc\t\t\t\t->\t Limpeza de cache do Exim\n";
 echo -e "sslqueueclear\t\t\t->\t Limpa fila do AutoSSL\n";
 echo -e "changetimezone\t\t\t->\t Alterar timezone do servidor\n";
-echo -e "domlogs\t\t\t\t->\t Verificar requisições de bot ou em arquivos xml/wp-login.php";
+echo -e "portcheck\t\t\t->\t Verificar IPs com acessos atuais em determinada porta\n";
+echo -e "digmon\t\t\t\t->\t Informações DNS de um domínio\n";
+echo -e "domlog\t\t\t\t->\t Verificar requisições de bot ou em arquivos xml/wp-login.php\n";
+echo -e "ftpaccess\t\t\t->\t Verificar acessos atuais ao FTP\n";
+echo -e "add360agent\t\t\t->\t Adicionar agente do Plesk 360 monitoring\n";
+echo -e "aliashdbr\t\t\t->\t Subir ambiente do audit\n";
+echo -e "cpanelAccess\t\t\t->\t Gerar link de acesso à conta cPanel\n";
+echo -e "webmailAccess\t\t\t->\t Gerar link de acesso à conta de e-mail via webmail\n";
+echo -e "aliashdbr\t\t\t->\t Subir ambiente do audit\n";
+echo -e "meuip\t\t\t\t->\t Exibir IP público\n";
+echo -e "${PURPLE}menotinode\t\t\t->\t Verificar utilização de inode no diretório atual${NC}\n";
+
+echo -e "${CYAN}======================== Outros Ambientes ========================${NC}\n"
+echo -e "xupas\t\t\t\t->\t Subir ambiente do suporte\n";
+echo -e "aliashdbr\t\t\t->\t Subir ambiente do Audit\n";
+
 }
 
-ozark ;
+ozark;
+
+
 
 #ALIASES
 alias ls="ls -al --color=always";export LESS="r";
-alias spamsoft='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/spamsoft)';
-alias addspamhunter='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/spamhunter)';
+alias spamsoft='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/spamsoft)';
+alias addspamhunter='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/spamhunter)';
 alias devnullcron='bash <(curl -ks https://codex.hostdime.com/scripts/download/devnullcron)';
-alias mnotifybeta='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/snotifybeta.sh)';
-alias checkxmlrpc='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/xmlrpc.sh)';
-alias checkwplogin='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/wplogin.sh)';
-alias whoownsdomain='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/-/raw/main/whoownsdomain.sh)';
+alias mnotifybeta='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/snotifybeta.sh)';
+alias checkxmlrpc='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/xmlrpc.sh)';
+alias checkwplogin='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/wplogin.sh)';
+alias whoownsdomain='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/whoownsdomain.sh)';
 alias xupas='eval "$(curl -ks https://codex.hostdime.com/scripts/download/supas)"';
-alias changetimezone='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/-/raw/main/changetimezone.sh)';
-alias domlogs='bash <(curl -ks https://codesilo.dimenoc.com/joelson.p/scripts/raw/main/domlogs.sh)'
+alias aliashdbr='eval "$(curl -ks https://codex.hostdime.com/scripts/download/aliashdbr)"';
+alias changetimezone='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/changetimezone.sh)';
+alias wordpressfix='bash <(curl -ks https://codex.hostdime.com/scripts/download/wordpressfix)';
+alias portcheck='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/portcheck.sh)';
+alias backuphistory='bash <(curl -ks https://codex.hostdime.com/scripts/download/cpbackupspeed)';
+alias domlog='bash <(curl -ks https://raw.githubusercontent.com/joelsondepaula/linux/main/domlogs.sh)';
+alias scheck2='bash <(curl -ks https://codex.hostdime.com/scripts/download/scheck2)';
+alias add360agent='wget -q -N monitoring.platform360.io/agent360.sh && bash agent360.sh 634d9e3c1c270f0ba10fe6e7';
+alias equipa='bash <(curl -ks https://codex.hostdime.com/scripts/download/version)';
+alias diskhealth='bash <(curl -ks https://codex.hostdime.com/scripts/download/CheckDriveHealth)'
 
-
-#SCRIPTS
+#Functions
 
 #function changemail_password do Ambiente de suporte
 function cpass(){
@@ -87,8 +137,7 @@ function ygrep(){
 
 accountmail=${1}
 
-zgrep "A=dovecot_.*:"$accountmail"" /var/log/exim_mainlog*
-
+zgrep -E "A=dovecot_(login|plain):"$accountmail"" /var/log/exim_mainlog*
 }
 
 
@@ -120,3 +169,98 @@ cd /var/spool/exim/db && rm -f retry retry.lockfile && rm -f wait-remote_smtp wa
 function sslqueueclear(){
 
 mv /var/cpanel/autossl_queue_cpanel.sqlite /var/cpanel/autossl_queue_cpanel.sqlite.bkp
+
+}
+
+function emailsumiu(){
+
+mailaccount=${1}
+
+doveadm force-resync -u $mailaccount INBOX
+}
+
+function digmon(){
+
+domain=${1}
+
+dig $domain ANY +noall +answer
+
+}
+
+function ftpaccess(){
+
+ftptype=${1}
+
+if [ "$ftptype" == pure ]
+
+then
+
+/usr/sbin/pure-ftpwho -v
+
+elif [ "$ftptype" == pro ]
+
+then
+
+/usr/bin/ftpwho -v
+
+else
+
+echo "Invalid Option"
+echo -e "Use \"pure\" for PURE-FTPD or \"pro\" for PROFTPD"
+
+fi
+
+}
+
+function sendhotmail(){
+
+echo "Mensagem de teste" | exim -r root@$HOSTNAME -v -odf testehostdime@hotmail.com
+
+}
+
+function sendgmail(){
+
+echo "Mensagem de teste" | exim -r root@$HOSTNAME -v -odf hostdimeteste@gmail.com
+
+}
+
+
+function disablerootnotifications(){
+  
+  
+sed -i '/PT_USERPROC/s/"[^>]*"/"0"/g' /etc/csf/csf.conf && sed -i '/PT_USERMEM/s/"[^>]*"/"0"/g' /etc/csf/csf.conf && sed 's/To\: root/To\: devnull/g' -i /etc/csf/alerts/* && echo "/dev/null" >> /root/.forward && csf -r && service exim restart  
+  
+}
+
+function whmAccess(){
+
+whmapi1 create_user_session user=root service=whostmgrd|grep url
+}
+
+
+function cpanelAccess(){
+
+cpaccount=${1}
+
+    whmapi1 create_user_session user=$cpaccount service=cpaneld|grep url
+}
+
+
+function webmailAccess(){
+
+mailaccount=${1}
+
+  whmapi1 create_user_session user=$mailaccount service=webmaild|grep url
+
+}
+
+function meuip(){
+  
+curl https://meuip.com.br/ | grep -E "([0-9]{1,3}[\.]){3}[0-9]{1,3}"  
+  
+}
+
+function menotinode(){
+  
+echo "Utilização de Inode por diretório: $(pwd)" ; find . -maxdepth 1 -type d |cut -d\/ -f2 |grep -xv . | while read line; do printf "$( find "$line"| wc -l) \t\t- $line \n" ; done |  sort -rn; printf "Total: \t\t$(find $($line) | wc -l)\n"
+  }
