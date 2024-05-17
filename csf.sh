@@ -6,4 +6,3 @@ tar -xzf csf.tgz \
 cd csf \
 ./install.cpanel.sh
 
-end
