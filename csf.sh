@@ -24,9 +24,15 @@ cd csf
 # Run the CSF installation script for cPanel
 ./install.cpanel.sh
 
+# Modify the CSF configuration to set TESTING to 0
+sed -i 's/^TESTING = "1"/TESTING = "0"/' /etc/csf/csf.conf
+
+# Restart CSF to apply the changes
+csf -r
+
 # Clean up: remove the downloaded and extracted files
 cd ..
 rm -rf csf csf.tgz
 
 # Indicate completion
-echo "CSF installation completed successfully."
+echo "CSF installation completed successfully, TESTING set to 0, and CSF restarted."
