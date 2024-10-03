@@ -8,7 +8,7 @@ rm -f spamsoft.txt
 
 echo -e "\nLogins used to send e-mail:" >> spamsoft.txt
 
-cat /var/log/exim_mainlog | grep "$date" | grep "A=dovecot_login:" | awk -F"A=" '{ print $2 }' | cut -f1 -d' ' | sort | uniq -c | sort -rn | head -20 >> spamsoft.txt
+cat /var/log/exim_mainlog | grep "$date" | grep -E "A=dovecot_"(login|plain)":" | awk -F"A=" '{ print $2 }' | cut -f1 -d' ' | sort | uniq -c | sort -rn | head -20 >> spamsoft.txt
 
 echo -e "\nDirectories used to send e-mail:" >> spamsoft.txt
 
