@@ -1,4 +1,5 @@
 #!/bin/bash
+#Utilizar informando o hostname do servidor, exemplo: sslinstall treinamento.carboniohdbr.com
 
 domain=${1}
 
