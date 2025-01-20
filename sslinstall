@@ -1,0 +1,17 @@
+#!/bin/bash
+
+domain=${1}
+
+/usr/bin/certbot certonly --key-type rsa --preferred-chain "ISRG Root X1" -d $domain --standalone --email "abuse@hostdime.com.br" --agree-tos --no-eff-email
+
+/usr/bin/cp /etc/letsencrypt/live/$domain/privkey.pem /opt/zextras/ssl/carbonio/commercial/commercial.key
+/usr/bin/cp /etc/letsencrypt/live/$domain/cert.pem /tmp
+/usr/bin/cp /etc/letsencrypt/live/$domain/chain.pem /tmp
+
+/usr/bin/wget -O /tmp/ISRG-X1.pem https://letsencrypt.org/certs/isrgrootx1.pem.txt
+/usr/bin/cat /tmp/ISRG-X1.pem >> /tmp/chain.pem
+
+/usr/bin/chown zextras:zextras /opt/zextras/ssl/carbonio/commercial/commercial.key
+/usr/bin/su - zextras -c 'zmcertmgr verifycrt comm /opt/zextras/ssl/carbonio/commercial/commercial.key /tmp/cert.pem /tmp/chain.pem'
+/usr/bin/su - zextras -c 'zmcertmgr deploycrt comm /tmp/cert.pem /tmp/chain.pem'
+/usr/bin/su - zextras -c 'zmcontrol restart'
