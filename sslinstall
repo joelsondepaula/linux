@@ -1,5 +1,9 @@
 #!/bin/bash
-#Utilizar informando o hostname do servidor, exemplo: sslinstall treinamento.carboniohdbr.com
+
+
+# Script para instalação do certificado SSL(certbot) no carbonio
+# Utilizar informando o hostname do servidor, exemplo: sslinstall treinamento.carboniohdbr.com
+# Pré-requisito: instalar o certbot
 
 domain=${1}
 
