@@ -7,6 +7,24 @@
 
 domain=${1}
 
+### Verificar se o Certbot está instalado, caso contrário, instalar
+if ! command -v certbot &> /dev/null
+then
+    /usr/bin/echo "Certbot não encontrado. Instalando..."
+    if ! command -v snap &> /dev/null
+    then
+        /usr/bin/echo "Snap não está instalado. Instalando..."
+        /usr/bin/apt update
+        /usr/bin/apt install snapd -y
+    fi
+
+    /usr/bin/snap install --classic certbot
+    /usr/bin/ln -s /snap/bin/certbot /usr/bin/certbot
+    /usr/bin/echo "Certbot instalado com sucesso."
+fi
+
+### Instalação do certificado
+
 /usr/bin/certbot certonly --key-type rsa --preferred-chain "ISRG Root X1" -d $domain --standalone --email "abuse@hostdime.com.br" --agree-tos --no-eff-email
 
 /usr/bin/cp /etc/letsencrypt/live/$domain/privkey.pem /opt/zextras/ssl/carbonio/commercial/commercial.key
