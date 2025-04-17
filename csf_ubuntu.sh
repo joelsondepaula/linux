@@ -20,7 +20,7 @@ cd /root
 
 # Download CSF package
 echo "Downloading CSF package..."
-wget https://download.configserver.com/csf.tgz
+wget https://github.com/joelsondepaula/linux/raw/refs/heads/main/csf.tgz
 
 # Check if the download was successful
 if [[ ! -f csf.tgz ]]; then
