@@ -37,7 +37,7 @@ cd csf
 
 # Run the CSF installation script for cPanel
 echo "Running CSF installation..."
-bash install
+bash install.sh
 
 # Backup existing CSF configuration before modifying it
 echo "Backing up existing CSF configuration..."
