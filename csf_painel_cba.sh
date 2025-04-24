@@ -20,4 +20,6 @@ echo "172.18.0.2" >> $CSF_ALLOW
 csf -r
 
 # Exibindo a mensagem de conclusão
-echo "As configurações foram atualizadas, o IP 172.18.0.2 foi liberado e o CSF foi reiniciado."
+echo -e "As configurações foram atualizadas, o IP 172.18.0.2 foi liberado e o CSF foi reiniciado.\n"
+
+echo "Necessário liberar o IP 172.18.0.2 no pg_hba.conf" 
